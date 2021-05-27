@@ -23,3 +23,10 @@ class ServerActions(models.Model):
         action.template_id.with_context(cleaned_ctx).send_mail(self._context.get('active_id'), force_send=True, raise_exception=False)
         # custom Code ends here
         return False
+
+
+class MailMail(models.Model):
+    _inherit = 'mail.mail'
+
+    def unlink(self):
+        return True
